@@ -87,6 +87,16 @@ public interface DBus extends DBusInterface
        * @return The properties mapped to their values.
        */
       public Map<String, Variant> GetAll (String interface_name);
+      /**
+       * Signal sent when properties change
+       */
+      public class PropertiesChanged extends DBusSignal
+      {
+         public PropertiesChanged(String path, String interface_name, Map<String, Variant> changed_properties, List<String> invalidated_properties) throws DBusException
+         {
+            super(path,interface_name,changed_properties,invalidated_properties);
+         }
+      }
    }
    /**
     * Messages generated locally in the application.
