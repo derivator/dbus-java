@@ -22,4 +22,9 @@ public interface DBusSigHandler<T extends DBusSignal>
     * Otherwise it will be an instance of DBusSignal
     */
    public void handle(T s);
+   /**
+    * The signal handling mechanism detects this interface to know if it's allowed to pass a raw DBusSignal.
+    * You have to use it to be able to receive arbitrary signals that you don't have an interface for.
+    */
+   public interface GenericHandler extends DBusSigHandler<DBusSignal>{};
 }

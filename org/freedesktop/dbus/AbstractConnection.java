@@ -846,7 +846,7 @@ public abstract class AbstractConnection
                run = true;
                try {
                   DBusSignal rs;
-                  if (s instanceof DBusSignal.internalsig || s.getClass().equals(DBusSignal.class))
+                  if (s instanceof DBusSignal.internalsig || (s.getClass().equals(DBusSignal.class) && !(h instanceof DBusSigHandler.GenericHandler)))
                      rs = s.createReal(conn);
                   else
                      rs = s;

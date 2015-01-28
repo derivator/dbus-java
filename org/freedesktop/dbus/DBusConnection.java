@@ -723,7 +723,7 @@ public class DBusConnection extends AbstractConnection
          throw new DBusException(_("Invalid object path: ")+objectpath);
       addSigHandler(new DBusMatchRule(type, source, objectpath), (DBusSigHandler<? extends DBusSignal>) handler);
    }
-   protected <T extends DBusSignal> void addSigHandler(DBusMatchRule rule, DBusSigHandler<T> handler) throws DBusException
+   public <T extends DBusSignal> void addSigHandler(DBusMatchRule rule, DBusSigHandler<T> handler) throws DBusException
    {
       try {
          _dbus.AddMatch(rule.toString());
